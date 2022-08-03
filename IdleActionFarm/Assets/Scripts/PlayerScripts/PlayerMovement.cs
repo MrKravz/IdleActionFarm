@@ -4,21 +4,21 @@ namespace Assets.Scripts.PlayerScripts
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float speed;
-        private Rigidbody rb;
-        private Vector3 moveVelocity;
-        private Vector3 moveInput;
+        [SerializeField] private float _playerSpeed;
+        private Rigidbody _playerRb;
+        private Vector3 _playerMoveVelocity;
+        private Vector3 _playerMoveInput;
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
+            _playerRb = GetComponent<Rigidbody>();
         }
 
         private void FixedUpdate()
         {
-            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-            moveVelocity = moveInput * speed;
-            rb.MovePosition(rb.position + moveVelocity * Time.deltaTime);
+            _playerMoveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            _playerMoveVelocity = _playerMoveInput * _playerSpeed;
+            _playerRb.MovePosition(_playerRb.position + _playerMoveVelocity * Time.deltaTime);
         }
     }
 }
