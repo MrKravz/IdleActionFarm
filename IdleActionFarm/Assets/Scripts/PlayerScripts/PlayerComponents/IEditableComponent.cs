@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.PlayerComponents
+﻿namespace Assets.Scripts.PlayerScripts.PlayerComponents
 {
     public interface IEditableComponent
     {

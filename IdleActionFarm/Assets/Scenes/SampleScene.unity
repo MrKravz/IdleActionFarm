@@ -413,11 +413,11 @@ MonoBehaviour:
       - m_Target: {fileID: 2126655020}
         m_TargetAssemblyTypeName: Assets.Scripts.Managers.CuttingWheatManager, Assembly-CSharp
         m_MethodName: PickupHay
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -470,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619938297}
   - component: {fileID: 619938296}
+  - component: {fileID: 619938298}
   m_Layer: 0
   m_Name: DotweenAnimationsManager
   m_TagString: Untagged
@@ -491,9 +492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinPrefab: {fileID: 7497011651534584945, guid: 87a77c5ee698c4e478f499c186943796, type: 3}
   _resultedPosition: {fileID: 1150149856}
-  _moneyFont: {fileID: 1010970662}
   _currentMoney: {fileID: 1160568416}
   _targetCanvas: {fileID: 1200568192}
+  _moneyFont: {fileID: 1010970662}
 --- !u!4 &619938297
 Transform:
   m_ObjectHideFlags: 0
@@ -506,8 +507,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &619938298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619938295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aebdddf61934aa468097a4cecf2643c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,8 +830,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 92.670395, y: 235.59543}
-  m_SizeDelta: {x: -185.3407, y: -471.1908}
+  m_AnchoredPosition: {x: 96.5439, y: 233.78778}
+  m_SizeDelta: {x: -193.0877, y: -467.5755}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010970662
 MonoBehaviour:
@@ -833,7 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -905,8 +918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.842, y: 0.000061035156}
-  m_SizeDelta: {x: -25.769, y: -0.495}
+  m_AnchoredPosition: {x: -8.631, y: 0.000061035156}
+  m_SizeDelta: {x: -17.3469, y: -0.495}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012504177
 MonoBehaviour:
@@ -928,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20/40
+  m_text: 0/40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1114,8 +1127,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 33.222, y: 0}
-  m_SizeDelta: {x: -66.443, y: 0}
+  m_AnchoredPosition: {x: 29.348, y: 0}
+  m_SizeDelta: {x: -58.696, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150149858
 MonoBehaviour:
@@ -1189,8 +1202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.087, y: 0.000061035156}
-  m_SizeDelta: {x: -26.258, y: -0.495}
+  m_AnchoredPosition: {x: -9.607895, y: 0}
+  m_SizeDelta: {x: -19.216, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160568418
 MonoBehaviour:
@@ -1612,7 +1625,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentValue: 0
   _maxValue: 40
-  _coinAnimation: {fileID: 0}
+  _coinAnimation: {fileID: 619938298}
+  _updateWheatInfoManager: {fileID: 1535725238}
 --- !u!114 &1253864862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,6 +1642,7 @@ MonoBehaviour:
   _currentValue: 0
   _maxValue: 10000
   _coinAnimation: {fileID: 619938296}
+  _updateMoneyInfoManager: {fileID: 1010970664}
 --- !u!1 &1335146405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,8 +2005,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 101.989136, y: 203}
-  m_SizeDelta: {x: -203.979, y: -471.1908}
+  m_AnchoredPosition: {x: 101.99, y: 211.4}
+  m_SizeDelta: {x: -203.979, y: -467.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535725236
 MonoBehaviour:
@@ -2140,7 +2155,7 @@ Transform:
   m_Children:
   - {fileID: 1335146406}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1655831891
 MonoBehaviour:
@@ -2157,53 +2172,6 @@ MonoBehaviour:
   _wheatComponent: {fileID: 1253864861}
   _moneyComponent: {fileID: 1253864862}
   _priceOfHaystack: 15
---- !u!1 &1904947345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1904947346}
-  - component: {fileID: 1904947347}
-  m_Layer: 0
-  m_Name: ManagersObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1904947346
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904947345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.399637, y: 5.8393335, z: -2.753572}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1904947347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904947345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb6260918002c5c44959efd09ce1cc48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _harvestButton: {fileID: 606277176}
-  _sellButton: {fileID: 1403792085}
-  _cuttingWheatManager: {fileID: 2126655020}
-  _sellManager: {fileID: 1655831891}
 --- !u!1 &2097583807
 GameObject:
   m_ObjectHideFlags: 0

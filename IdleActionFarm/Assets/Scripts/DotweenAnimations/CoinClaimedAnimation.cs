@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,36 +8,36 @@ namespace Assets.Scripts.DotweenAnimations
     {
         [SerializeField] private GameObject _coinPrefab;
         [SerializeField] private GameObject _resultedPosition;
-        [SerializeField] private Image _moneyFont;
         [SerializeField] private GameObject _currentMoney;
         [SerializeField] private GameObject _targetCanvas;
+        [SerializeField] private Image _moneyFont;
 
         public void ClaimCoin()
         {
-            TextJump();
-            YellowHighlight();
-        }
-
-        private IEnumerator CoinFly()
-        {
-
             var instance = Instantiate(_coinPrefab, new Vector3(0, 0, 0), new Quaternion());
-            Debug.Log(_resultedPosition.transform.position.x + " " + _resultedPosition.transform.position.y + " " + _resultedPosition.transform.position.z);
             instance.transform.SetParent(_targetCanvas.transform);
-            instance.transform.DOMove(_resultedPosition.transform.position, 5);
-            Debug.Log(instance.transform.position.x + " " + instance.transform.position.y + " " + instance.transform.position.z);
-            yield return new WaitForSecondsRealtime(1);
+            var coinMove = DOTween.Sequence().Append(instance.transform.DOMove(_resultedPosition.transform.position, 2));
+            coinMove.Play();
+            coinMove.OnComplete(() => { CoinReceived(instance); });
         }
 
-        private void YellowHighlight()
+        private void CoinReceived(GameObject instance)
         {
-            _moneyFont.DOColor(Color.yellow, 0.15f).SetLoops(2, LoopType.Yoyo);
+            Destroy(instance);
+            BackgroundYellowHighlight();
+            TextJump();
         }
 
+        private void BackgroundYellowHighlight()
+        {
+            var coinMove = DOTween.Sequence().Append(_moneyFont.DOColor(Color.yellow, 0.15f).SetLoops(2, LoopType.Yoyo));
+            coinMove.Play();
+        }
 
         private void TextJump()
         {
-            _currentMoney.transform.DOMove(new Vector3(_currentMoney.transform.position.x, _currentMoney.transform.position.y + 10), 0.2f).SetLoops(2, LoopType.Yoyo);
+            var coinMove = DOTween.Sequence().Append(_currentMoney.transform.DOMove(new Vector3(_currentMoney.transform.position.x, _currentMoney.transform.position.y + 10), 0.2f).SetLoops(2, LoopType.Yoyo));
+            coinMove.Play();
         }
     }
 }

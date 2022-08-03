@@ -1,4 +1,4 @@
-using Assets.Scripts.PlayerComponents;
+using Assets.Scripts.PlayerScripts.PlayerComponents;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
