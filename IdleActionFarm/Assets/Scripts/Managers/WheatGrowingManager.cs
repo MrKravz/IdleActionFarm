@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.Managers
 {
-
     public enum EWheatProgress
     {
         Seeds,
@@ -13,7 +12,7 @@ namespace Assets.Scripts.Managers
 
     public class WheatGrowingManager : MonoBehaviour
     {
-        [SerializeField] private EWheatProgress _currentProgress;
+        [SerializeField] private EWheatProgress _currentProgress = EWheatProgress.Seeds;
 
         private void Awake()
         {
@@ -22,30 +21,25 @@ namespace Assets.Scripts.Managers
 
         public void CutWheat()
         {
-            _currentProgress = EWheatProgress.Seeds;
             StartCoroutine(StartGrowthCoroutine());
         }
         
-        private IEnumerator GrowSeedsCoroutine()
-        {
-            while (_currentProgress != EWheatProgress.Mature)
+            if (_currentProgress == EWheatProgress.Mature)
             {
-                if (_currentProgress == EWheatProgress.Seeds)
-                {
-                    _currentProgress = EWheatProgress.Seedlings;
-                }
-                else if (_currentProgress == EWheatProgress.Seedlings)
-                {
-                    _currentProgress = EWheatProgress.Mature;
-                }
-                yield return new WaitForSecondsRealtime(5);
+                _currentProgress = EWheatProgress.Seeds;
+                StartCoroutine(StartGrowthCoroutine());
             }
         }
-
+        
         private IEnumerator StartGrowthCoroutine()
         {
             yield return new WaitForSecondsRealtime(5);
-            StartCoroutine(GrowSeedsCoroutine());
+            _currentProgress = EWheatProgress.Seedlings;
+            Debug.Log(1);
+            yield return new WaitForSecondsRealtime(5);
+            _currentProgress = EWheatProgress.Mature;
+            Debug.Log(2);
         }
+
     }
 }

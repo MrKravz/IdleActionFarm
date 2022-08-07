@@ -7,10 +7,11 @@ namespace Assets.Scripts.Managers
     public class UpdateMoneyInfoManager : MonoBehaviour
     {
         [SerializeField] private TMP_Text text;
+        [SerializeField] private MoneyComponent _currentMoney;
 
-        public void UpdateInfo(MoneyComponent moneyComponent)
+        public void UpdateInfo()
         {
-            text.text = moneyComponent.CurrentValue.ToString(); 
+            text.text = _currentMoney.CurrentValue.ToString(); 
         }
     }
 }

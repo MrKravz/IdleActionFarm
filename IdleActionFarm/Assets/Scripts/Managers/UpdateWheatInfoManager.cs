@@ -9,11 +9,13 @@ namespace Assets.Scripts.Managers
     {
         [SerializeField] private TMP_Text text;
         [SerializeField] private Image image;
+        [SerializeField] private WheatComponent _currentWheat;
 
-        public void UpdateInfo(WheatComponent wheatComponent)
+        public void UpdateInfo()
         {
-            text.text = wheatComponent.CurrentValue.ToString() + "/" + wheatComponent.MaxValue.ToString();
-            image.fillAmount = wheatComponent.CurrentValue / wheatComponent.MaxValue;
+            text.text = _currentWheat.CurrentValue.ToString() + "/" + _currentWheat.MaxValue.ToString();
+            image.fillAmount = (float)_currentWheat.CurrentValue / _currentWheat.MaxValue;
+           
         }
     }
 }
