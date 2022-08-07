@@ -21,9 +21,6 @@ namespace Assets.Scripts.Managers
 
         public void CutWheat()
         {
-            StartCoroutine(StartGrowthCoroutine());
-        }
-        
             if (_currentProgress == EWheatProgress.Mature)
             {
                 _currentProgress = EWheatProgress.Seeds;
