@@ -2,25 +2,35 @@ using UnityEngine;
 
 namespace Assets.Scripts.PlayerScripts
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private float _playerSpeed;
-       // [SerializeField] private FloatingJoystick _joystick;
+        [field: SerializeField] public float PlayerSpeed { get; private set; } = default;
+        [SerializeField] private FloatingJoystick _joystick;
         private Rigidbody _playerRb;
+        [SerializeField] private Transform _playerTransform;
+        private Animator _playerAnim;
         private Vector3 _playerMoveVelocity;
-        private Vector3 _playerMoveInput;
+        private Vector3 _playerInput;
 
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody>();
+            _playerAnim = GetComponent<Animator>();
         }
 
         private void FixedUpdate()
         {
-            _playerMoveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); //new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
-            _playerMoveVelocity = _playerMoveInput * _playerSpeed;
+            _playerInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); //new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
+            _playerMoveVelocity = _playerInput * PlayerSpeed;
             _playerRb.MovePosition(_playerRb.position + _playerMoveVelocity * Time.deltaTime);
+            if (_playerInput != Vector3.zero)
+            {
+                _playerAnim.SetBool("IsRunning", true);
+                _playerRb.MoveRotation(Quaternion.LookRotation(_playerInput, Vector3.up));
+                return;
+            }
+            _playerAnim.SetBool("IsRunning", false);
         }
     }
 }

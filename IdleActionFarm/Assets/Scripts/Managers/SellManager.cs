@@ -1,28 +1,50 @@
 using Assets.Scripts.DotweenAnimations;
 using Assets.Scripts.PlayerScripts.PlayerComponents;
+using Assets.Scripts.UIScripts;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Managers
 {
+
+    [RequireComponent(typeof(AudioSource))]
     public class SellManager : MonoBehaviour
     {
         [SerializeField] private WheatComponent _wheatComponent;
         [SerializeField] private MoneyComponent _moneyComponent;
         [SerializeField] private CoinClaimedAnimation _coinAnimation;
+        [SerializeField] private UpdateUiInfo _updateWheatInfoManager;
         [SerializeField] private int _priceOfHaystack;
-        public Action<int> OnMoneyAdded;
+        private AudioSource _sellWheatAudio;
+        public event Action OnSellPerformed;
 
         private void Awake()
         {
-            OnMoneyAdded += (int value) => { StartCoroutine(_coinAnimation.ClaimCoins(value)); };
+            _sellWheatAudio = GetComponent<AudioSource>();
+            OnSellPerformed += () => { _coinAnimation.ClaimCoin(); };
         }
 
-        public void SellWheat()
+        public void SellAllWheat()
         {
-            var count = _wheatComponent.Reset();
-            _moneyComponent.Add(count * _priceOfHaystack);
-            OnMoneyAdded?.Invoke(count);
+            if (_wheatComponent.CurrentValue > 0)
+            {
+                _sellWheatAudio.Play();
+                var currentWheat = _wheatComponent.Reset();
+                _updateWheatInfoManager.UpdateInfo();
+                StartCoroutine(SellWheatCoroutine(currentWheat));
+            }
+        }
+
+        public IEnumerator SellWheatCoroutine(int value)
+        {
+            while (value > 0)
+            {
+                OnSellPerformed?.Invoke();
+                _moneyComponent.Add(_priceOfHaystack);
+                value--;
+                yield return new WaitForSecondsRealtime(0.35f);
+            }
         }
     }
 }
