@@ -1,22 +1,22 @@
 using System;
+using UnityEngine;
 
 namespace Assets.Scripts.PlayerScripts.PlayerComponents
 {
-    public class MoneyComponent : PlayerComponent, IOnlyAddableComponent
+    [CreateAssetMenu(fileName = "MoneyComponent", menuName = "Configs/MoneyComponent", order = 2)]
+    public class MoneyComponent : PlayerComponent, IComponent
     {
-        public event Action OnMoneyAdded;
-        
+        public event Action OnComponentAdded;
+
         public void Add(int value)
         {
             if (CurrentValue + value <= MaxValue)
             {
                 CurrentValue += value;
-                OnMoneyAdded?.Invoke();
+                OnComponentAdded?.Invoke();
                 return;
             }
-            CurrentValue = MaxValue;
-            OnMoneyAdded?.Invoke();
         }
-
     }
+
 }

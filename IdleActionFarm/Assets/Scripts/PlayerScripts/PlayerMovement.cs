@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.PlayerScripts
 {
-    [RequireComponent(typeof(Rigidbody), typeof(Animator))]
+    [RequireComponent(typeof(Rigidbody), typeof(Animator), typeof(AudioSource))]
     public class PlayerMovement : MonoBehaviour
     {
         [field: SerializeField] public float PlayerSpeed { get; private set; } = default;
         [SerializeField] private FloatingJoystick _joystick;
-        private Rigidbody _playerRb;
         [SerializeField] private Transform _playerTransform;
+        private Rigidbody _playerRb;
         private Animator _playerAnim;
         private Vector3 _playerMoveVelocity;
         private Vector3 _playerInput;
@@ -21,7 +21,7 @@ namespace Assets.Scripts.PlayerScripts
 
         private void FixedUpdate()
         {
-            _playerInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")); //new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
+            _playerInput = new Vector3(_joystick.Horizontal, 0f, _joystick.Vertical);
             _playerMoveVelocity = _playerInput * PlayerSpeed;
             _playerRb.MovePosition(_playerRb.position + _playerMoveVelocity * Time.deltaTime);
             if (_playerInput != Vector3.zero)

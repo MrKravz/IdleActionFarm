@@ -12,7 +12,6 @@ namespace Assets.Scripts.DotweenAnimations
         [SerializeField] private Transform _currentMoney;
         [SerializeField] private Transform _targetCanvas;
         [SerializeField] private Image _moneyFont;
-        [SerializeField] private UpdateUiInfo _updateMoneyInfoManager;
 
         public void ClaimCoin()
         {
@@ -39,7 +38,6 @@ namespace Assets.Scripts.DotweenAnimations
         private void TextJump()
         {
             var textJump = DOTween.Sequence().Append(_currentMoney.DOMove(new Vector3(_currentMoney.position.x, _currentMoney.position.y + 10), 0.1f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.Linear));
-            textJump.OnComplete(() => { _updateMoneyInfoManager.UpdateInfo(); });
             textJump.Play();
         }
     }
