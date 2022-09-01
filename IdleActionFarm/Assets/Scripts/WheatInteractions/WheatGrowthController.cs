@@ -11,7 +11,9 @@ namespace Assets.Scripts.WheatInteractions
 
         private void Awake()
         {
+            _wheatGrowthManager.OnCultureCollect += () => { UpdateVisual(); };
             _wheatGrowthManager.OnWheatStageChanged += () => { UpdateVisual(); };
+            UpdateVisual();
         }
 
         private void UpdateVisual()
@@ -34,7 +36,6 @@ namespace Assets.Scripts.WheatInteractions
             _wheatSeedsStage.SetActive(false);
             _wheatMatureStage.SetActive(true);
             _wheatSeedlingsStage.SetActive(false);
-            return;
         }
     }
 }

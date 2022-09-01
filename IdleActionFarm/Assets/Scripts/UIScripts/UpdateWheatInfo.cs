@@ -11,6 +11,11 @@ namespace Assets.Scripts.UIScripts
         [SerializeField] private WheatComponent _currentComponentValue;
         [SerializeField] private Image image;
 
+        private void Awake()
+        {
+            UpdateInfo();
+        }
+
         public void UpdateInfo()
         {
             _valueText.text = _currentComponentValue.CurrentValue.ToString() + "/" + _currentComponentValue.MaxValue.ToString();

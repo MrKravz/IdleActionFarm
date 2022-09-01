@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f2ff197de8a984bb618271ada4d85a, type: 3}
   m_Name: WheatComponent
   m_EditorClassIdentifier: 
-  <CurrentValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 40
   <MaxValue>k__BackingField: 40

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.WheatInteractions
@@ -24,29 +23,35 @@ namespace Assets.Scripts.WheatInteractions
             StartCoroutine(StartGrowthCoroutine());
         }
 
-        public void ResetWheatProgress()
+        public bool TryResetWheatProgress()
         {
-            CurrentProgress = EWheatProgress.Seeds;
-            OnCultureCollect?.Invoke();
+            if (CurrentProgress == EWheatProgress.Mature)
+            {
+                CurrentProgress = EWheatProgress.Seeds;
+                _isCanGrow = true;
+                OnCultureCollect?.Invoke();
+                return true;
+            }
+            return false;
         }
 
         private IEnumerator StartGrowthCoroutine()
         {
             while (_isCanGrow && CurrentProgress != EWheatProgress.Mature)
             {
+                yield return new WaitForSecondsRealtime(5);
                 if (CurrentProgress == EWheatProgress.Seeds)
                 {
-                    yield return new WaitForSecondsRealtime(5);
                     CurrentProgress = EWheatProgress.Seedlings;
                     OnWheatStageChanged?.Invoke();
                 }
-                if (CurrentProgress == EWheatProgress.Seedlings)
+                else if (CurrentProgress == EWheatProgress.Seedlings)
                 {
-                    yield return new WaitForSecondsRealtime(5);
                     CurrentProgress = EWheatProgress.Mature;
                     OnWheatStageChanged?.Invoke();
-
+                    _isCanGrow = false;
                 }
+               
             }
         }
     }

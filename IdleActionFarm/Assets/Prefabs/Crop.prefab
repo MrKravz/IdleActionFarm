@@ -77,11 +77,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5854177995460528473}
-  - component: {fileID: 5771549399335566885}
+  - component: {fileID: 1945464492343166445}
   - component: {fileID: 3085837866186831802}
   - component: {fileID: 5257261860568805576}
   - component: {fileID: 6844578925983269182}
-  - component: {fileID: 1945464492343166445}
   m_Layer: 7
   m_Name: CropMiddle
   m_TagString: Untagged
@@ -105,20 +104,19 @@ Transform:
   m_Father: {fileID: 9062647205533329112}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5771549399335566885
-MonoBehaviour:
+--- !u!65 &1945464492343166445
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444047049974994303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a3d03b0a52e14bb8afb983a06d35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collect: {fileID: 5257261860568805576}
-  _wheat: {fileID: 3085837866186831802}
+  serializedVersion: 2
+  m_Size: {x: 2.1245642, y: 0.7430451, z: 3.899765}
+  m_Center: {x: -0.3184247, y: 3.0283961, z: 10.227474}
 --- !u!114 &3085837866186831802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _updateWheatInfoManager: {fileID: 0}
+  _wheat: {fileID: 3085837866186831802}
+  _wheatValue: 0
 --- !u!114 &6844578925983269182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,19 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 5257261860568805576}
---- !u!65 &1945464492343166445
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444047049974994303}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9263277, y: 1, z: 3.899765}
-  m_Center: {x: -0.3184247, y: 0, z: 10.227474}
 --- !u!1 &2030393133204713937
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,11 +639,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2184970297580296696}
+  - component: {fileID: 1712853861804733027}
   - component: {fileID: 4359459694679833325}
-  - component: {fileID: 8093665828487375621}
   - component: {fileID: 4356299560817480490}
   - component: {fileID: 3762775861274685662}
-  - component: {fileID: 1712853861804733027}
   m_Layer: 7
   m_Name: CropEnding
   m_TagString: Untagged
@@ -680,6 +666,19 @@ Transform:
   m_Father: {fileID: 9062647205533329112}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1712853861804733027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742814097317341714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0995378, y: 0.7186668, z: 3.8576622}
+  m_Center: {x: -0.26653814, y: 3.034379, z: 14.067659}
 --- !u!114 &4359459694679833325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,20 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentProgress>k__BackingField: 0
---- !u!114 &8093665828487375621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742814097317341714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a3d03b0a52e14bb8afb983a06d35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collect: {fileID: 4356299560817480490}
-  _wheat: {fileID: 4359459694679833325}
 --- !u!114 &4356299560817480490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +706,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _updateWheatInfoManager: {fileID: 0}
+  _wheat: {fileID: 4359459694679833325}
+  _wheatValue: 0
 --- !u!114 &3762775861274685662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,19 +721,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 4356299560817480490}
---- !u!65 &1712853861804733027
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742814097317341714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.0004206, y: 1, z: 3.818016}
-  m_Center: {x: -0.27644968, y: 0, z: 14.047836}
 --- !u!1 &8063495291268233881
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +889,6 @@ GameObject:
   - component: {fileID: 6771894182053932415}
   - component: {fileID: 6336380022052394492}
   - component: {fileID: 7939486052168609639}
-  - component: {fileID: 2187115166150324102}
   m_Layer: 7
   m_Name: CropBegining
   m_TagString: Untagged
@@ -992,20 +965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _updateWheatInfoManager: {fileID: 0}
---- !u!114 &2187115166150324102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8950291185287783725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7a3d03b0a52e14bb8afb983a06d35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _collect: {fileID: 7939486052168609639}
   _wheat: {fileID: 6336380022052394492}
+  _wheatValue: 0
 --- !u!1 &9062647205533329113
 GameObject:
   m_ObjectHideFlags: 0

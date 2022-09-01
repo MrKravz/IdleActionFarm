@@ -37,7 +37,7 @@ namespace Assets.Scripts.GameplayManagers
             for (int i = 0; i < value; i++)
             {
                 _animation.ClaimCoin();
-                _player.Money.Add(1);
+                _player.Money.Add(_priceOfHaystack);
                 yield return new WaitForSecondsRealtime(0.5f);
             }
         }

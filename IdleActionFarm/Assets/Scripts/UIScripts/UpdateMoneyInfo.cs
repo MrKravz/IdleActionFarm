@@ -9,6 +9,11 @@ namespace Assets.Scripts.UIScripts
         [SerializeField] protected TMP_Text _valueText;
         [SerializeField] private MoneyComponent _currentComponentValue;
 
+        private void Awake()
+        {
+            UpdateInfo();
+        }
+
         public void UpdateInfo()
         {
             _valueText.text = _currentComponentValue.CurrentValue.ToString();

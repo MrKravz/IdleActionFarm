@@ -1,5 +1,6 @@
 using Assets.Scripts.PlayerScripts;
 using Assets.Scripts.UIScripts;
+using Assets.Scripts.WheatInteractions;
 using UnityEngine;
 
 namespace Assets.Scripts.GameplayManagers
@@ -8,15 +9,20 @@ namespace Assets.Scripts.GameplayManagers
     {
         [SerializeField] private PlayerModel _player;
         [SerializeField] private UpdateWheatInfo _updateWheatInfoManager;
+        [SerializeField] private WheatGrowthManager _wheat;
+        [SerializeField] private int _wheatValue;
 
         private void Awake()
         {
-            _player.Money.OnComponentAdded += () => { _updateWheatInfoManager.UpdateInfo(); };
+            _player.Wheat.OnComponentAdded += () => { _updateWheatInfoManager.UpdateInfo(); };
         }
 
         public override void PerformManagedOperation()
         {
-            _player.Wheat.Add(1);
+            if (_wheat.TryResetWheatProgress())
+            {
+                _player.Wheat.Add(_wheatValue);
+            }
         }
     }
 }
