@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.PlayerScripts
 {
-    [RequireComponent(typeof(Rigidbody), typeof(Animator), typeof(AudioSource))]
+    [RequireComponent(typeof(Rigidbody), typeof(Animator))]
     public class PlayerMovement : MonoBehaviour
     {
         [field: SerializeField] public float PlayerSpeed { get; private set; } = default;

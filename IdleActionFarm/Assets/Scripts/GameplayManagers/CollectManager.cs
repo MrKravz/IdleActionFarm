@@ -19,8 +19,9 @@ namespace Assets.Scripts.GameplayManagers
 
         public override void PerformManagedOperation()
         {
-            if (_wheat.TryResetWheatProgress())
+            if (_player.Wheat.CurrentValue != _player.Wheat.MaxValue && !_wheat.IsCanGrow)
             {
+                _wheat.ResetWheatProgress();
                 _player.Wheat.Add(_wheatValue);
             }
         }

@@ -15,7 +15,7 @@ namespace Assets.Scripts.WheatInteractions
         [field: SerializeField] public EWheatProgress CurrentProgress { get; private set; } = EWheatProgress.Seeds;
         public event Action OnCultureCollect;
         public event Action OnWheatStageChanged;
-        private bool _isCanGrow = true;
+        public bool IsCanGrow { get; private set; } = true;
 
         private void Awake()
         {
@@ -23,21 +23,19 @@ namespace Assets.Scripts.WheatInteractions
             StartCoroutine(StartGrowthCoroutine());
         }
 
-        public bool TryResetWheatProgress()
+        public void ResetWheatProgress()
         {
             if (CurrentProgress == EWheatProgress.Mature)
             {
                 CurrentProgress = EWheatProgress.Seeds;
-                _isCanGrow = true;
+                IsCanGrow = true;
                 OnCultureCollect?.Invoke();
-                return true;
             }
-            return false;
         }
 
         private IEnumerator StartGrowthCoroutine()
         {
-            while (_isCanGrow && CurrentProgress != EWheatProgress.Mature)
+            while (IsCanGrow && CurrentProgress != EWheatProgress.Mature)
             {
                 yield return new WaitForSecondsRealtime(5);
                 if (CurrentProgress == EWheatProgress.Seeds)
@@ -49,7 +47,7 @@ namespace Assets.Scripts.WheatInteractions
                 {
                     CurrentProgress = EWheatProgress.Mature;
                     OnWheatStageChanged?.Invoke();
-                    _isCanGrow = false;
+                    IsCanGrow = false;
                 }
                
             }
