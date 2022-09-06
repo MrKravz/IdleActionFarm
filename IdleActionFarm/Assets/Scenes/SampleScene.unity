@@ -1860,10 +1860,10 @@ RectTransform:
   m_Father: {fileID: 1200568196}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 336.474, y: 920.34985}
-  m_SizeDelta: {x: -672.947, y: -1840.8}
+  m_AnchoredPosition: {x: -203.526, y: -40.150146}
+  m_SizeDelta: {x: 407.05298, y: 80.19995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010970662
 MonoBehaviour:
@@ -2788,7 +2788,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3350,7 +3350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cc50f61b12fd0468a9965b1abba65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <PlayerSpeed>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 3
   _joystick: {fileID: 657343260}
   _playerTransform: {fileID: 1376844510}
 --- !u!114 &1376844508
@@ -3806,10 +3807,10 @@ RectTransform:
   m_Father: {fileID: 1200568196}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 380.89, y: 771}
-  m_SizeDelta: {x: -761.777, y: -1834.1}
+  m_AnchoredPosition: {x: -159.10999, y: -189.5}
+  m_SizeDelta: {x: 318.22302, y: 86.900024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1535725236
 MonoBehaviour:
